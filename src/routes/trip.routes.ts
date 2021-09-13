@@ -14,7 +14,8 @@ export class TripRoutes {
   }
   routes() {
    
-    
+    // save the new trip 
+
     this.router.post('/savetrip', buss_reccomand, async (req, res, next) => {
       try {
         let buss: SaveReqTrip = {

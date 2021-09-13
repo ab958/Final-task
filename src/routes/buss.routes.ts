@@ -12,6 +12,8 @@ export class BussRoutes {
     this.routes();
   }
   routes() {
+
+    // get specfic buss 
     this.router.post('/getBuss', async (req, res, next) => {
       try {
         const getreq:GetBUSS = req.body;
@@ -21,6 +23,8 @@ export class BussRoutes {
         next(error);
       }
     });
+
+    // save the new buss
     this.router.post('/savebuss', async (req, res, next) => {
       try {
         const buss: SaveReqBUSS = req.body;
@@ -32,6 +36,8 @@ export class BussRoutes {
         next(error);
       }
     });
+
+    // update the buss
     this.router.put('/updatebuss', async (req, res, next) => {
       try {
         const buss: UpdateReqBUSS = req.body;
@@ -46,6 +52,7 @@ export class BussRoutes {
         next(error);
       }
     });
+    // delete the buss
     this.router.delete('/deletebuss', async (req, res, next) => {
       try {
         const delreq:DeleteBUSS = req.body;
@@ -57,17 +64,7 @@ export class BussRoutes {
         next(error);
       }
     });
-    // this.router.post('/getadminlist', async (req, res, next) => {
-    //   try {
-    //     const adminList: SaveUpdateResADMIN[] = await new BussController().getadminList();
-    //     res.status(200).json({
-    //       result: adminList
-    //     });
-
-    //   } catch (error) {
-    //     next(error);
-    //   }
-    // });
+    
   }
 }
 export const BussRoutesApi = new BussRoutes().router;
